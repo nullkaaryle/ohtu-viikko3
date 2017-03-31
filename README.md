@@ -1,1 +1,1 @@
-# ohtu-viikko3
+# OhTu-viikko3
