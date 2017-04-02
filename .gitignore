@@ -1,1 +1,6 @@
 .DS_Store
+.gradle
+build/
+/gradlenPerusteita/.nb-gradle/
+/HelloCucumber/.nb-gradle/
+/LoginCucumber/.nb-gradle/
