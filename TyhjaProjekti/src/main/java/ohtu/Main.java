@@ -9,7 +9,7 @@ import org.apache.http.client.fluent.Request;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String studentNr = "013042893";
+        String studentNr = "012345678";
 
         if (args.length > 0) {
             studentNr = args[0];
