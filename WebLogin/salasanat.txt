@@ -3,3 +3,6 @@ jukka;akkuj
 kalervo;klervo123
 abc;abc123456
 uusiTunnus;uusiSalasana
+kobra;kai12345
+gerbera;gerbera123
+kekkonen;kekkon234
