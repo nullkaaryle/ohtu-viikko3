@@ -30,6 +30,18 @@ public class Stepdefs {
         element.click();
     }
 
+    @Given("^user with username \"([^\"]*)\" and password \"([^\"]*)\" is successfully created$")
+    public void user_with_username_and_password_is_successfully_created(String username, String password) throws Throwable {
+        new_user_is_selected();
+        registerNewUserWith(username, password, password);
+    }
+
+    @Given("^user with username \"([^\"]*)\" and password \"([^\"]*)\" is unsuccessfully created$")
+    public void user_with_username_and_password_is_unsuccessfully_created(String username, String password) throws Throwable {
+        new_user_is_selected();
+        registerNewUserWith(username, password, password);
+    }
+
 //WHEN LOGIN    
     @When("^correct username \"([^\"]*)\" and password \"([^\"]*)\" are given$")
     public void username_correct_and_password_are_given(String username, String password) throws Throwable {
@@ -66,7 +78,7 @@ public class Stepdefs {
     public void invalid_passwordConfirmation_are_given(String username, String password, String passwordConfirmation) throws Throwable {
         registerNewUserWith(username, password, passwordConfirmation);
     }
-    
+
 //THEN
     @Then("^user is created$")
     public void user_is_created() throws Throwable {

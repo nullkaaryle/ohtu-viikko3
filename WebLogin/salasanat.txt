@@ -6,3 +6,4 @@ uusiTunnus;uusiSalasana
 kobra;kai12345
 gerbera;gerbera123
 kekkonen;kekkon234
+kerppu;kerppu123
