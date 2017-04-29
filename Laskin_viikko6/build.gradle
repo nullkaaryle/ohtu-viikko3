@@ -30,3 +30,6 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'ohtu.Main'
 
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'ohtu.Main'
+}

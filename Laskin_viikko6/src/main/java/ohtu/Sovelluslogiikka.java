@@ -3,6 +3,10 @@ package ohtu;
 public class Sovelluslogiikka {
  
     private int tulos;
+    
+    public Sovelluslogiikka() {
+        
+    }
  
     public void plus(int luku) {
         tulos += luku;
