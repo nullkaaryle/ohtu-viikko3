@@ -17,6 +17,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JTextField syotekentta;
     private Sovelluslogiikka sovellus;
     private Map<JButton, Komento> komennot;
+    private Komento edellinen;
 
     public Tapahtumankuuntelija(JButton plus, JButton miinus, JButton nollaa, JButton undo, JTextField tuloskentta, JTextField syotekentta) {
         this.plus = plus;
@@ -26,7 +27,7 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.tuloskentta = tuloskentta;
         this.syotekentta = syotekentta;
         this.sovellus = new Sovelluslogiikka();
-        
+
         komennot = new HashMap<>();
         komennot.put(plus, new Summa(sovellus, tuloskentta, syotekentta));
         komennot.put(miinus, new Erotus(sovellus, tuloskentta, syotekentta));
@@ -39,29 +40,19 @@ public class Tapahtumankuuntelija implements ActionListener {
 
         if (komento != null) {
             komento.suorita();
+            edellinen = komento;
         } else {
-            // toiminto oli undo
+            edellinen.peru();
+            edellinen = null;
         }
-        
+
         int laskunTulos = sovellus.tulos();
 
         syotekentta.setText("");
         tuloskentta.setText("" + laskunTulos);
 
-        if (laskunTulos == 0) {
-            nollaa.setEnabled(false);
-        } else {
-            nollaa.setEnabled(true);
-        }
-        
-        nollaa.setEnabled(sovellus.tulos()!=0);
-
-        undo.setEnabled(true);
+        nollaa.setEnabled(sovellus.tulos() != 0);
+        undo.setEnabled(edellinen != null);
     }
 
 }
-
-//        try {
-//            arvo = Integer.parseInt(syotekentta.getText());
-//        } catch (Exception e) {
-//        }
